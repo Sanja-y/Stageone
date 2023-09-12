@@ -5,7 +5,7 @@ import BadDesign from "../assets/questions/design/bad-design.png"
 import Code from "../assets/questions/code/code.png"
 import axios from '../axios/axios';
 import { endpoints } from '../axios/endpoints';
-import {useQuery} from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 let answer1 = "Lorem ipsum"
 let answer2 = "Lorem Ipsum"
 let answer3 = "lorem ipsum"
@@ -23,7 +23,7 @@ let questions = {
   },
   question_4: { type: "paragraph", content: "Describe a situation when you had a lot on your to-do list but limited time. How will you manage? Answer in 200 words only. " },
   question_5: { type: "programming", content: "Rewrite the code correctly", program: Code },
-  question_6 : {type: "debugging", prblm_stmt: Code}
+  question_6: { type: "debugging", prblm_stmt: Code }
 }
 
 
@@ -51,55 +51,54 @@ function InterviewSection() {
   document?.getElementById("submit")?.addEventListener("click", () => { stopTimer(); })
   let noOfQuestions;
   const fetchData = async () => {
-      const response = await 
+    const response = await
       axios.get(endpoints.QUESTIONS)
-      return response.data
-      
+    return response.data
+
   }
-  
-  const {data, isLoading, isError} = useQuery(["questions"], fetchData)
+
+  const { data, isLoading, isError } = useQuery(["questions"], fetchData)
   function convertQuestionsToFormat(questions) {
     const result = {};
-  if(questions?.length>0)
-  {
-    questions.forEach((question, index) => {
-      const questionKey = `question_${index + 1}`;
-      const {
-        type,
-        question: questionText,
-        category,
-        stage,
-        difficulty,
-        options,
-        prblm_stmt,
-      } = question;
-  
-      result[questionKey] = {
-        type,
-        question: questionText,
-        category,
-        stage,
-        difficulty,
-        prblm_stmt,
-      };
-  
-      if (options !== null && Array.isArray(options)) {
-        result[questionKey].options = options;
-      }
-    });
-  
-  }
+    if (questions?.length > 0) {
+      questions.forEach((question, index) => {
+        const questionKey = `question_${index + 1}`;
+        const {
+          type,
+          question: questionText,
+          category,
+          stage,
+          difficulty,
+          options,
+          problem_stmt,
+        } = question;
+
+        result[questionKey] = {
+          type,
+          question: questionText,
+          category,
+          stage,
+          difficulty,
+          problem_stmt,
+        };
+
+        if (options !== null && Array.isArray(options)) {
+          result[questionKey].options = options;
+        }
+      });
+
+    }
     return result;
   }
 
-  
 
-  
+
+
   const formattedQuestions = convertQuestionsToFormat(data);
-  
+
   console.log(formattedQuestions);
   noOfQuestions = Object.keys(formattedQuestions).length;
-  const total_time = noOfQuestions*10;
+  const total_time = noOfQuestions * 10;
   const [mainTimerMinutes, setMainTimerMinutes] = useState(total_time)
   const [mainTimerSeconds, setMainTimerSeconds] = useState(0)
   const [isMainTimerRunning, setIsMainTimerRunning] = useState(false)
@@ -108,12 +107,12 @@ function InterviewSection() {
     <div className="overflow-clip w-full bg-white relative">
       <div className='px-[30px] py-[3px] '>
         <div className='flex justify-end items-end'>
-        <MainTimer isRunning={isMainTimerRunning}
-                    setIsRunning={setIsMainTimerRunning}
-                    minutes={mainTimerMinutes}
-                    setMinutes={setMainTimerMinutes}
-                    seconds={setMainTimerSeconds}
-                    setSeconds={setMainTimerSeconds} />
+          <MainTimer isRunning={isMainTimerRunning}
+            setIsRunning={setIsMainTimerRunning}
+            minutes={mainTimerMinutes}
+            setMinutes={setMainTimerMinutes}
+            seconds={setMainTimerSeconds}
+            setSeconds={setMainTimerSeconds} />
         </div>
 
         <CompletionBar questions={formattedQuestions}
