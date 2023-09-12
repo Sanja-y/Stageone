@@ -12,7 +12,7 @@ const MultipleChoiceQuestion = (props) => {
                 return(
                     <ul >
                      <li> 
-                      <input type='radio' placeholder={answer} name="bruh" /> <label>{answer}</label>
+                      <input type='radio' placeholder={answer} name="type" /> <label>{answer}</label>
                     </li>
                     </ul>
                 )
