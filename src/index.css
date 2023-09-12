@@ -1,13 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.videoFeedForVideo
+{
+  width: 60%;
+  height: 27em;
+  border: 0px solid ;
+  margin-right: 2%;
+  margin-bottom: 4%;
+  position:relative;
+}
+.videoFeed
+{
+  width: 30%;
+  height: 5em;
+  margin-right: 1%;
+  margin-bottom: 4%;
+  position: relative;
+}
+.startScreen
+{
+  width: 40%;
+  height: 30.5rem;
+  display: block;
+  border-radius: 10px;
+  background-color: white;
+  margin-left: 0%;
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.examScreen
+{
+  width: 80%;
+  height: 23em;
+  display: block;
+  border-radius: 10px;
+  background-color: #202124;
+  color:white;
+  margin-left: 7%;
+  margin-bottom: 1%;
+  padding: 15px 20px;
+  text-align: center;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.skip
+{
+  width: 35rem;
+  height: 20rem;
+  border-radius: 10px;
+  background-color: white;
+  border: black 2px solid;
+  padding: 3%;
 }

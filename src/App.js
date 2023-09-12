@@ -1,24 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import "./index.css"
+import { InterviewSection } from './components/index';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {GetStarted, Instructions} from "./pages/pages"
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <QueryClientProvider client ={queryClient}>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<GetStarted />} />
+          <Route path='/camera-setup' element={<Instructions />} />
+          <Route path="/interview-section" element={<InterviewSection/>} />
+        </Routes>
+      </Router>    
     </div>
+    </QueryClientProvider>
   );
 }
 

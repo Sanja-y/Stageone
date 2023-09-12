@@ -1,0 +1,21 @@
+.Terms-modal {
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    right: 100px;
+    bottom: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+  }
+
+  .Terms-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(38, 50, 56, 0.80);
+  }
