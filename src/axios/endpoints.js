@@ -1,3 +1,4 @@
 export const endpoints = {
-    QUESTIONS : "/questions"
+    QUESTIONS : "/questions",
+    SUBMIT : "/assessmentMaster",
 }

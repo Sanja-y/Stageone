@@ -1,20 +1,27 @@
 import React from 'react';
-import Instruction from '../components/Instruction';
-import CameraSetup from '../components/CameraSetup';
-import Navbar from '../components/Navbar';
-
+import {Instruction, CameraSetup} from '../components/instructions';
+import {Navbar} from '../components/common';
+//Instructions screen for StageOne
 const Instructions = () => {
     return (
-        <div className="container ">
+        <div className="w-full  max-h-[100vh]">
             <Navbar />
-            <div className="flex">
-                <div className="w-1/2">
+            <div className="flex flex-row justify-center items-start ">
+                <div className=" ">
                     <Instruction />
                 </div>
-                <div className="w-1/2">
-                    <CameraSetup />
+                <div className="">
+                    <CameraSetup />            
                 </div>
             </div>
+            {/* <div className='flex flex-row  justify-center items-center'>
+                <div>
+                    <h1>Instructions</h1>
+                </div>
+                <div>
+                    <h1>Camera Setup</h1>
+                </div>
+            </div> */}
         </div>
     );
 };

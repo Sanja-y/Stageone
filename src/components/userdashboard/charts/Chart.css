@@ -1,0 +1,13 @@
+.Radar-chart,.Progressive-chart,.Bar-chart{
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    background: white;
+    
+}
+
+.custom-legends{
+    border-radius: 20px;
+}
+
+.bold-y-axis-tick {
+  font-weight: bold;
+  }
